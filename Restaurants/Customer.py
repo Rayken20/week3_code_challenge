@@ -1,8 +1,6 @@
 # customer.py
 
 import sqlite3
-import restaurant_db
-from Review import Review
 from Restaurant import Restaurant
 
 class Customer:
@@ -60,3 +58,5 @@ class Customer:
         """, (restaurant.id, self.id))
         conn.commit()
         conn.close()
+
+
