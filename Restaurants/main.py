@@ -19,15 +19,27 @@ def main():
         print("Testing methods for Customer:")
         print("Full Name of Customer 1:", customer1.full_name())
         print("Full Name of Customer 2:", customer2.full_name())
-        print("Favorite Restaurant of Customer 1:", customer1.favorite_restaurant().name)
-        print("Favorite Restaurant of Customer 2:", customer2.favorite_restaurant().name)
+
+        # Check if favorite restaurant is None before accessing its name attribute
+        favorite_restaurant_1 = customer1.favorite_restaurant()
+        if favorite_restaurant_1:
+            print("Favorite Restaurant of Customer 1:", favorite_restaurant_1.name)
+        else:
+            print("Customer 1 has no favorite restaurant.")
+
+        favorite_restaurant_2 = customer2.favorite_restaurant()
+        if favorite_restaurant_2:
+            print("Favorite Restaurant of Customer 2:", favorite_restaurant_2.name)
+        else:
+            print("Customer 2 has no favorite restaurant.")
 
         # Adding a new review for a restaurant by a customer
         customer1.add_review(restaurant1, 4)
 
         # Displaying all reviews for a restaurant
         print("All Reviews for Restaurant 1:")
-        for review in restaurant1.all_reviews():
+        reviews_1 = restaurant1.all_reviews()
+        for review in reviews_1:
             print(review)
 
         # Deleting all reviews for a restaurant by a customer
@@ -35,7 +47,8 @@ def main():
 
         # Displaying all reviews for a restaurant again to confirm deletion
         print("All Reviews for Restaurant 1 (after deletion):")
-        for review in restaurant1.all_reviews():
+        reviews_1_after_deletion = restaurant1.all_reviews()
+        for review in reviews_1_after_deletion:
             print(review)
 
         # Testing methods for Review
@@ -44,8 +57,12 @@ def main():
 
         # Testing methods for Restaurant
         print("\nTesting methods for Restaurant:")
-        print("Fanciest Restaurant:", Restaurant.fanciest().name)
-    
+        fanciest_restaurant = Restaurant.fanciest()
+        if fanciest_restaurant:
+            print("Fanciest Restaurant:", fanciest_restaurant.name)
+        else:
+            print("No restaurants available.")
+
     except ValueError as e:
         print("Error:", e)
 
