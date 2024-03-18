@@ -6,9 +6,9 @@ def main():
     try:
         # Create some sample data to test
         customer1 = Customer(1, "Rachael", "NJoki")
-        customer2 = Customer(2, "Peter", "Irungu")
+        customer2 = Customer(2, "Peter", "Macharia")
 
-        restaurant1 = Restaurant(1, "KFC 1", 50)
+        restaurant1 = Restaurant(1, "Pepinos 1", 50)
         restaurant2 = Restaurant(2, "Wa Kalucy 2", 60)
 
         review1 = Review(1, 1, 1, 5)

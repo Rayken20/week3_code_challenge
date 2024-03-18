@@ -41,7 +41,7 @@ restaurants_data = [
 customers_data = [
     ('Rachael', 'Njoki'),
     ('Rockie', 'Rocks'),
-    ('Peter', 'Irungu')
+    ('Peter', 'Macharia')
 ]
 
 reviews_data = [
