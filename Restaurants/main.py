@@ -5,11 +5,11 @@ from Review import Review
 def main():
     try:
         # Create some sample data to test
-        customer1 = Customer(1, "John", "Doe")
-        customer2 = Customer(2, "Jane", "Smith")
+        customer1 = Customer(1, "Rachael", "NJoki")
+        customer2 = Customer(2, "Peter", "Irungu")
 
-        restaurant1 = Restaurant(1, "Sample Restaurant 1", 50)
-        restaurant2 = Restaurant(2, "Sample Restaurant 2", 60)
+        restaurant1 = Restaurant(1, "KFC 1", 50)
+        restaurant2 = Restaurant(2, "Wa Kalucy 2", 60)
 
         review1 = Review(1, 1, 1, 5)
         review2 = Review(2, 2, 1, 4)

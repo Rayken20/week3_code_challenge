@@ -1,11 +1,9 @@
-# customer.py
-
 import sqlite3
-from Restaurant import Restaurant
+
 
 class Customer:
-    def __init__(self, id, first_name, last_name):
-        self.id = id
+    def __init__(self, customer_id, first_name, last_name):
+        self.id = customer_id
         self.first_name = first_name
         self.last_name = last_name
 
@@ -59,4 +57,35 @@ class Customer:
         conn.commit()
         conn.close()
 
+    def reviews(self):
+        """
+        Returns a collection of all the reviews that the Customer has left.
+        """
+        conn = sqlite3.connect('restaurant.db')
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT * FROM reviews
+            WHERE customer_id=?
+        """, (self.id,))
+        reviews_data = cursor.fetchall()
+        conn.close()
+        return [Review(*review_data) for review_data in reviews_data]
 
+    def restaurants(self):
+        """
+        Returns a collection of all the restaurants that the Customer has reviewed.
+        """
+        conn = sqlite3.connect('restaurant.db')
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT DISTINCT restaurants.*
+            FROM restaurants
+            JOIN reviews ON restaurants.id = reviews.restaurant_id
+            WHERE reviews.customer_id=?
+        """, (self.id,))
+        restaurants_data = cursor.fetchall()
+        conn.close()
+        return [Restaurant(*restaurant_data) for restaurant_data in restaurants_data]
+
+from Restaurant import Restaurant
+from Review import Review
